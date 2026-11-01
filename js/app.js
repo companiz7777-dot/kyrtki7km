@@ -20,6 +20,7 @@
     });
   }
   function money(n) {
+    if (!n) return 'Ціна за запитом';
     return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₴';
   }
   function bySlug(s) { for (var i = 0; i < P.length; i++) if (P[i].slug === s) return P[i]; return null; }
@@ -350,7 +351,7 @@
   function footer() {
     return '<footer class="foot"><div class="wrap foot__grid">' +
       '<div class="foot__logo" aria-hidden="true">KURTKI<sup>7KM</sup></div>' +
-      '<ul><li class="eyebrow">Каталог</li><li><a href="#/catalog?new=1">Новинки</a></li><li><a href="#/catalog?kind=puffer">Пуховики</a></li><li><a href="#/catalog?kind=coat">Пальта</a></li><li><a href="#/catalog?sale=1">Sale</a></li></ul>' +
+      '<ul><li class="eyebrow">Каталог</li><li><a href="#/catalog?new=1">Новинки</a></li><li><a href="#/catalog?kind=puffer">Пуховики</a></li><li><a href="#/catalog?kind=coat">Пальта</a></li><li><a href="#/catalog?fur=1">З хутром</a></li></ul>' +
       '<ul><li class="eyebrow">Покупцям</li><li><a href="#/info">Доставка та оплата</a></li><li><a href="#/info">Повернення</a></li><li><a href="#/info">Таблиця розмірів</a></li></ul>' +
       '<ul><li class="eyebrow">Контакти</li><li><a href="tel:+380000000000">+38 (000) 000 00 00</a></li><li>Щодня 9:00–21:00</li><li>Ринок «7 км», Одеса</li></ul>' +
       '</div><div class="wrap"><p class="foot__note mono">© 2026 KURTKI 7KM · Чернетка сайту для погодження · <a href="admin.html">Адмін-панель</a></p></div></footer>';
@@ -361,16 +362,17 @@
     var news = P.filter(function (p) { return p.flags.new; }).slice(0, 8);
     var sale = P.filter(function (p) { return p.oldPrice; });
     var tiles = [
-      ['puffer', 'img/p-tartufo-1.webp'], ['coat', 'img/p-fumo-1.webp'], ['parka', 'img/p-utility-brown-1.webp'], ['fur', 'img/p-lucia-taupe-1.webp'],
-      ['jacket', 'img/p-pilota-brown-1.webp'], ['vest', 'img/p-argento-1.webp'], ['cardigan', 'img/paris-1.webp'], ['suit', 'img/p-tuta-black-1.webp']
+      ['puffer', 'img/m-argento-1-1.webp'], ['jacket', 'img/m-camoscio-1-1.webp'], ['parka', 'img/m-duetto-1-1.webp'],
+      ['coat', 'img/m-avena-1-1.webp'], ['vest', 'img/m-maglia-1-1.webp']
     ];
     function count(k) { return P.filter(function (p) { return p.kind === k; }).length; }
+    tiles = tiles.filter(function (t) { return count(t[0]) > 0; });
     return '' +
       '<section class="hero" aria-label="Колекція зима 2026">' +
-        '<div class="hero__media"><img src="img/vino-2.webp" alt="Довгий пуховик Vino кольору бордо" width="900" height="1125" fetchpriority="high"><img src="img/p-tartufo-2.webp" alt="Пуховик Tartufo" width="900" height="1125"></div>' +
-        '<div class="hero__copy"><p class="eyebrow">Колекція FW 26 · −35° → +10°</p>' +
+        '<div class="hero__media"><img src="img/m-aviatore-2-4.webp" alt="Бомбер Aviatore з хутряним коміром, хакі" width="900" height="1125" fetchpriority="high"><img src="img/m-duetto-1-4.webp" alt="Куртка Duetto зі стьобаною вкладкою, шоколад" width="900" height="1125"></div>' +
+        '<div class="hero__copy"><p class="eyebrow">Колекція зима 2026/27</p>' +
           '<h1 class="hero__title">Зима,<br><em>зшита</em> на міру</h1>' +
-          '<p class="hero__lead">Пуховики, пальта, парки та шуби. Технічні матеріали, тихі кольори, примірка перед оплатою.</p>' +
+          '<p class="hero__lead">Пуховики, куртки, пальта та жилети. Тихі кольори, теплі хутряні капюшони, примірка перед оплатою.</p>' +
           '<div class="hero__cta"><a class="btn btn--light" href="#/catalog?new=1">Новинки</a><a class="btn btn--light" href="#/catalog?kind=puffer">Пуховики</a></div></div>' +
       '</section>' +
       '<div class="ticker mono" aria-hidden="true"><div class="ticker__in">' +
@@ -383,12 +385,12 @@
       '<section class="sec wrap" aria-labelledby="h-new" style="padding-top:0"><div class="sec__head"><h2 class="sec__title" id="h-new">Новинки <em>сезону</em></h2><a class="more" href="#/catalog?new=1">Усі новинки</a></div>' +
         '<div class="rail">' + news.map(function (p) { return card(p); }).join('') + '</div></section>' +
       '<section class="sec wrap" aria-labelledby="h-ed" style="padding-top:0"><div class="edit">' +
-        '<div class="edit__img"><img src="img/p-fumo-2.webp" alt="Пальто Fumo" width="900" height="1125" loading="lazy"></div>' +
-        '<div class="edit__txt"><p class="eyebrow">Editorial · 02</p><h2 id="h-ed">Тиха <em>розкіш</em> довгих пальт</h2><p>Вовна з кашеміром, широкі лацкани, пояс. Пальто-халат, що тримає форму від першого морозу до березня.</p><a class="btn" href="#/catalog?kind=coat&span=long">Довгі пальта</a></div>' +
-        '<div class="edit__img"><img src="img/p-vestaglia-camel-2.webp" alt="Пальто Vestaglia" width="900" height="1125" loading="lazy"></div>' +
+        '<div class="edit__img"><img src="img/m-camoscio-2-5.webp" alt="Куртка Camoscio з хутряним капюшоном, шоколад" width="900" height="1125" loading="lazy"></div>' +
+        '<div class="edit__txt"><p class="eyebrow">Editorial · 02</p><h2 id="h-ed">Хутро, що <em>зігріває</em></h2><p>Пишні хутряні капюшони та коміри на пуховиках, куртках і бомберах. Тепло й м’якість від першого морозу до березня.</p><a class="btn" href="#/catalog?fur=1">Моделі з хутром</a></div>' +
+        '<div class="edit__img"><img src="img/m-volpe-1-5.webp" alt="Пуховик Volpe з хутром, сірий" width="900" height="1125" loading="lazy"></div>' +
       '</div></section>' +
-      '<section class="salestrip" aria-labelledby="h-sale"><div class="sec wrap"><div class="sec__head"><h2 class="sec__title" id="h-sale">Sale <em>до −30%</em></h2><a class="more" href="#/catalog?sale=1">Усі знижки</a></div>' +
-        '<div class="rail">' + sale.map(function (p) { return card(p); }).join('') + '</div></div></section>' +
+      (sale.length ? '<section class="salestrip" aria-labelledby="h-sale"><div class="sec wrap"><div class="sec__head"><h2 class="sec__title" id="h-sale">Sale <em>до −30%</em></h2><a class="more" href="#/catalog?sale=1">Усі знижки</a></div>' +
+        '<div class="rail">' + sale.map(function (p) { return card(p); }).join('') + '</div></div></section>' : '') +
       '<section class="perks" aria-label="Переваги">' +
         '<div class="perk"><span class="mono">01</span><b>Примірка перед оплатою</b><p>Оплачуєте лише те, що підійшло, — прямо у відділенні Нової Пошти.</p></div>' +
         '<div class="perk"><span class="mono">02</span><b>Доставка 1–2 дні</b><p>Відправляємо щодня. Від 5 000 ₴ — безкоштовно.</p></div>' +
@@ -476,7 +478,7 @@
     var items = sortList(filterProducts(pr), pr.get('sort'));
     var title = catTitle(pr);
     var active = FILTER_KEYS.filter(function (k) { return pr.get(k); });
-    var quick = [['', 'Усі'], ['kind=puffer', 'Пуховики'], ['kind=coat', 'Пальта'], ['kind=parka', 'Парки'], ['kind=jacket', 'Куртки'], ['kind=fur', 'Шуби'], ['kind=vest', 'Жилетки'], ['kind=cardigan', 'Кардигани'], ['suit=1', 'Костюми'], ['sale=1', 'Sale']];
+    var quick = [['', 'Усі'], ['kind=puffer', 'Пуховики'], ['kind=coat', 'Пальта'], ['kind=parka', 'Парки'], ['kind=jacket', 'Куртки'], ['kind=vest', 'Жилетки'], ['fur=1', 'З хутром']];
     var cur = pr.toString();
     var html = '<div class="wrap">' +
       '<nav class="crumbs mono" aria-label="Навігація"><a href="#/">Головна</a><span aria-hidden="true">/</span><span>Каталог</span></nav>' +
@@ -599,7 +601,7 @@
           '<div class="pi__top"><p class="pi__kind mono">' + esc(KIND_ONE[p.kind]) + ' · ' + (p.span === 'long' ? 'довга модель' : 'коротка модель') + '</p>' +
           '<h1 class="pi__name">' + esc(p.name) + '</h1>' +
           '<div class="pi__price">' + priceHtml(p) + '</div>' +
-          '<div class="pi__meta mono"><span class="tag tag--ink" title="Температурний режим">' + p.temp + '</span>' +
+          '<div class="pi__meta mono">' + (p.temp ? '<span class="tag tag--ink" title="Температурний режим">' + p.temp + '</span>' : '') +
             (p.flags.new ? '<span class="tag">New</span>' : '') + (p.flags.leather ? '<span class="tag">Шкіра</span>' : '') + (p.flags.fur ? '<span class="tag">Хутро</span>' : '') +
             (p.oldPrice ? '<span class="tag" style="color:var(--sale)">−' + Math.round((1 - p.price / p.oldPrice) * 100) + '%</span>' : '') + '</div></div>' +
           '<div><div class="pi__lbl"><span>Колір: <b id="colorName">' + esc(p.colors[ci].name) + '</b></span></div>' +
@@ -610,11 +612,11 @@
             '<div class="sizes" role="group" aria-label="Розмір" id="sizeGrp">' + p.sizes.map(function (s) {
               return '<button data-size="' + s + '" aria-pressed="false">' + s + '<small>' + SIZE_UA[s] + '</small></button>';
             }).join('') + '</div><p class="err-msg" id="sizeErr" hidden>Оберіть розмір, щоб додати в кошик</p></div>' +
-          '<div class="pi__buy"><button class="btn btn--ink" id="addCart">Додати в кошик · ' + money(p.price) + '</button>' +
+          '<div class="pi__buy"><button class="btn btn--ink" id="addCart">Додати в кошик' + (p.price ? ' · ' + money(p.price) : '') + '</button>' +
             '<button class="btn fav-btn" data-fav="' + p.slug + '" aria-pressed="' + on + '" aria-label="' + (on ? 'Прибрати з улюблених: ' : 'В улюблені: ') + esc(p.name) + '">' + (on ? '♥' : '♡') + '</button></div>' +
           '<ul class="pi__perks"><li>Примірка у відділенні Нової Пошти перед оплатою</li><li>Безкоштовна доставка від 5 000 ₴</li><li>Обмін і повернення протягом 14 днів</li></ul>' +
           '<div class="acc">' +
-            '<details open><summary>Опис</summary><div class="acc__b"><p>' + esc(p.desc) + '</p><p class="mono" style="color:var(--mute)">Арт. K7-' + String(p.id).padStart(4, '0') + ' · Температурний режим ' + p.temp + '</p></div></details>' +
+            '<details open><summary>Опис</summary><div class="acc__b"><p>' + esc(p.desc) + '</p><p class="mono" style="color:var(--mute)">Арт. K7-' + String(p.id).padStart(4, '0') + (p.temp ? ' · Температурний режим ' + p.temp : '') + '</p></div></details>' +
             '<details><summary>Склад і матеріали</summary><div class="acc__b"><p>' + esc(p.materials) + '</p></div></details>' +
             '<details><summary>Догляд</summary><div class="acc__b"><p>' + esc(p.care) + '</p></div></details>' +
             '<details><summary>Доставка та повернення</summary><div class="acc__b"><p>Відправка Новою Поштою щодня, доставка 1–2 дні. Оплата після примірки у відділенні або карткою онлайн. Повернення — 14 днів. <a href="#/info" style="text-decoration:underline">Детальніше</a></p></div></details>' +

@@ -62,10 +62,10 @@
   }
 
   /* ── дані ── */
-  function loadProducts() { return clone(store.get('k7_admin_products', null) || window.PRODUCTS_ALL || window.PRODUCTS_DEFAULT || []); }
+  function loadProducts() { return clone(store.get('k7_admin_products_v2', null) || window.PRODUCTS_ALL || window.PRODUCTS_DEFAULT || []); }
   var products = loadProducts();
   function saveProducts() {
-    if (!store.set('k7_admin_products', products)) return false;
+    if (!store.set('k7_admin_products_v2', products)) return false;
     renderCounts();
     return true;
   }
@@ -444,7 +444,7 @@
     });
     $('#reset').addEventListener('click', function () {
       if (!confirm('Усі зміни в товарах буде втрачено, каталог повернеться до початкового. Продовжити?')) return;
-      store.del('k7_admin_products');
+      store.del('k7_admin_products_v2');
       products = clone(window.PRODUCTS_DEFAULT || []);
       renderCounts();
       toast('Початковий каталог повернуто');
