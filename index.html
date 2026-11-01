@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>KURTKI 7KM — зимовий верхній одяг</title>
+  <meta name="description" content="KURTKI 7KM — пуховики, довгі пальта, парки та вітровки. Editorial-колекції, технічні матеріали, примірка перед оплатою.">
+  <meta name="theme-color" content="#0d0d0d">
+  <!-- Чернетка для погодження: не індексувати. Прибрати перед справжнім запуском. -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20261101a">
+  <link rel="preload" as="image" href="img/vino-2.webp" media="(max-width: 899px)">
+</head>
+<body>
+  <a class="skip" href="#app">До вмісту</a>
+
+  <!-- ② Шапка -->
+  <header class="hdr" id="hdr">
+    <button class="hdr__btn" id="menuOpen" aria-label="Відкрити меню" aria-expanded="false" aria-controls="menu">
+      <span class="burger"><i></i><i></i></span><span class="hdr__lbl">Меню</span>
+    </button>
+    <a class="logo" href="#/" aria-label="KURTKI 7KM — на головну">KURTKI<sup>7KM</sup></a>
+    <div class="hdr__right">
+      <a class="hdr__btn hdr__fav" href="#/favorites" aria-label="Улюблені">
+        <span class="heart" aria-hidden="true">♡</span><span class="hdr__lbl">Улюблені</span><span class="favcount" id="favCount" hidden>0</span>
+      </a>
+      <button class="hdr__btn hdr__bag" id="cartOpen" aria-label="Кошик">
+        <span class="hdr__lbl">Кошик <span class="bagsum" id="bagSum"></span></span><span class="bagcount" id="bagCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="app" tabindex="-1"></main>
+
+  <!-- ② Меню -->
+  <div class="menu" id="menu" aria-hidden="true" role="dialog" aria-label="Меню">
+    <div class="menu__top">
+      <button class="hdr__btn" id="menuClose" aria-label="Закрити меню"><span class="x"></span><span class="hdr__lbl">Закрити</span></button>
+      <span class="logo logo--light">KURTKI<sup>7KM</sup></span>
+      <span></span>
+    </div>
+    <form class="menu__search" id="searchForm" role="search">
+      <input type="search" id="searchInput" placeholder="Пошук: пуховик, чорний, −30°…" aria-label="Пошук">
+      <button aria-label="Шукати">→</button>
+    </form>
+    <div class="menu__body">
+      <nav class="menu__main" aria-label="Головне меню">
+        <div class="mm">
+          <a class="mm__top" href="#/catalog?new=1" data-prev="img/p-espresso-1.webp"><span class="mono">01</span>Новинки</a>
+        </div>
+        <div class="mm">
+          <a class="mm__top" href="#/catalog?kind=puffer" data-prev="img/p-tartufo-1.webp"><span class="mono">02</span>Пуховики</a>
+          <div class="mm__sub"><a href="#/catalog?kind=puffer&span=short">Короткі пуховики</a><a href="#/catalog?kind=puffer&span=long">Довгі пуховики</a></div>
+        </div>
+        <div class="mm">
+          <a class="mm__top" href="#/catalog?kind=jacket" data-prev="img/p-pilota-brown-1.webp"><span class="mono">03</span>Куртки</a>
+          <div class="mm__sub"><a href="#/catalog?kind=jacket&span=short">Короткі куртки</a><a href="#/catalog?kind=jacket&span=long">Довгі куртки</a><a href="#/catalog?leather=1">Шкіряні куртки</a><a href="#/catalog?cat=windbreaker">Вітровки</a></div>
+        </div>
+        <div class="mm">
+          <a class="mm__top" href="#/catalog?kind=parka" data-prev="img/p-utility-brown-1.webp"><span class="mono">04</span>Парки</a>
+          <div class="mm__sub"><a href="#/catalog?kind=parka&span=short">Короткі парки</a><a href="#/catalog?kind=parka&span=long">Довгі парки</a><a href="#/catalog?kind=parka&fur=1">Парки з хутром</a></div>
+        </div>
+        <div class="mm">
+          <a class="mm__top" href="#/catalog?kind=coat" data-prev="img/p-fumo-1.webp"><span class="mono">05</span>Пальта</a>
+          <div class="mm__sub"><a href="#/catalog?kind=coat&span=short">Короткі пальта</a><a href="#/catalog?kind=coat&span=long">Довгі пальта</a></div>
+        </div>
+        <div class="mm">
+          <a class="mm__top" href="#/catalog?kind=fur" data-prev="img/p-lucia-taupe-1.webp"><span class="mono">06</span>Шуби</a>
+          <div class="mm__sub"><a href="#/catalog?kind=fur&span=short">Короткі шуби</a><a href="#/catalog?kind=fur&span=long">Довгі шуби</a></div>
+        </div>
+        <div class="mm">
+          <a class="mm__top" href="#/catalog?kind=vest" data-prev="img/p-argento-1.webp"><span class="mono">07</span>Жилетки</a>
+        </div>
+        <div class="mm">
+          <a class="mm__top" href="#/catalog?kind=cardigan" data-prev="img/paris-1.webp"><span class="mono">08</span>Кардигани</a>
+        </div>
+        <div class="mm">
+          <a class="mm__top" href="#/catalog?suit=1" data-prev="img/p-tuta-black-1.webp"><span class="mono">09</span>Спортивні костюми</a>
+        </div>
+        <div class="mm">
+          <a class="mm__top mm__top--sale" href="#/catalog?sale=1" data-prev="img/p-vestaglia-camel-1.webp"><span class="mono">10</span>Sale</a>
+        </div>
+      </nav>
+      <div class="menu__side">
+        <p class="eyebrow">Покупцям</p>
+        <ul class="menu__small">
+          <li><a href="#/info">Доставка та оплата</a></li>
+          <li><a href="#/favorites">Улюблені</a></li>
+          <li><a href="#/info">Таблиця розмірів</a></li>
+        </ul>
+      </div>
+      <figure class="menu__prev" aria-hidden="true"><img id="menuPrev" src="img/creme-1.webp" alt=""></figure>
+    </div>
+    <div class="menu__foot mono">
+      <a href="tel:+380000000000">+38 (000) 000 00 00</a>
+      <a href="#" aria-label="Instagram">Instagram</a>
+      <a href="#" aria-label="Telegram">Telegram</a>
+    </div>
+  </div>
+
+  <!-- ⑤ Фільтри -->
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="sheet" id="filters" aria-hidden="true" role="dialog" aria-label="Фільтри">
+    <div class="sheet__handle"></div>
+    <div class="sheet__head">
+      <h2 class="sheet__title">Фільтри</h2>
+      <button class="link" id="fReset">Скинути</button>
+      <button class="close" data-close aria-label="Закрити">✕</button>
+    </div>
+    <div class="sheet__body" id="fBody"></div>
+    <div class="sheet__foot">
+      <button class="btn btn--ink btn--full" id="fApply">Показати</button>
+    </div>
+  </aside>
+
+  <!-- Таблиця розмірів -->
+  <aside class="sheet" id="sizes" aria-hidden="true" role="dialog" aria-label="Таблиця розмірів">
+    <div class="sheet__handle"></div>
+    <div class="sheet__head">
+      <h2 class="sheet__title">Таблиця розмірів</h2>
+      <button class="close" data-close aria-label="Закрити">✕</button>
+    </div>
+    <div class="sheet__body">
+      <table class="sizetable mono">
+        <thead><tr><th>UA</th><th>INT</th><th>Груди</th><th>Талія</th><th>Стегна</th></tr></thead>
+        <tbody>
+          <tr><td>42</td><td>XS</td><td>82–85</td><td>64–67</td><td>90–93</td></tr>
+          <tr><td>44</td><td>S</td><td>86–89</td><td>68–71</td><td>94–97</td></tr>
+          <tr><td>46</td><td>M</td><td>90–93</td><td>72–75</td><td>98–101</td></tr>
+          <tr><td>48</td><td>L</td><td>94–97</td><td>76–79</td><td>102–105</td></tr>
+          <tr><td>50</td><td>XL</td><td>98–101</td><td>80–83</td><td>106–109</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Моделі оверсайз — беріть свій розмір. Між розмірами — оберіть менший для пуховиків до талії і більший для довгих, якщо носите з товстим светром. Модель на фото: зріст 172 см, розмір S.</p>
+    </div>
+  </aside>
+
+  <!-- ⑦ Кошик -->
+  <aside class="cart" id="cart" aria-hidden="true" role="dialog" aria-label="Кошик">
+    <div class="cart__head">
+      <h2 class="cart__title">Кошик <span class="mono" id="cartQty"></span></h2>
+      <button class="close" data-close aria-label="Закрити кошик">✕</button>
+    </div>
+    <div class="cart__ship" id="cartShip"></div>
+    <div class="cart__cols" aria-hidden="true"><span>Найменування товару</span><span>Колір / розмір</span><span>Ціна</span><span>Кількість</span><span>Вартість</span><span></span></div>
+    <div class="cart__body" id="cartBody"></div>
+    <div class="cart__foot" id="cartFoot"></div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js?v=20261101a"></script>
+  <script src="js/app.js?v=20261101a"></script>
+</body>
+</html>
