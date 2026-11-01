@@ -11,8 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20261101b">
-  <link rel="preload" as="image" href="img/m-aviatore-2-4.webp" media="(max-width: 899px)">
+  <link rel="stylesheet" href="css/style.css?v=20261031e">
+  <link rel="preload" as="image" href="img/vino-2.webp" media="(max-width: 899px)">
 </head>
 <body>
   <a class="skip" href="#app">До вмісту</a>
@@ -47,31 +47,7 @@
       <button aria-label="Шукати">→</button>
     </form>
     <div class="menu__body">
-      <nav class="menu__main" aria-label="Головне меню">
-        <div class="mm">
-          <a class="mm__top" href="#/catalog?new=1" data-prev="img/m-rosa-1-1.webp"><span class="mono">01</span>Новинки</a>
-        </div>
-        <div class="mm">
-          <a class="mm__top" href="#/catalog?kind=puffer" data-prev="img/m-argento-1-1.webp"><span class="mono">02</span>Пуховики</a>
-          <div class="mm__sub"><a href="#/catalog?kind=puffer&span=short">Короткі пуховики</a><a href="#/catalog?kind=puffer&span=long">Довгі пуховики</a><a href="#/catalog?kind=puffer&fur=1">Пуховики з хутром</a></div>
-        </div>
-        <div class="mm">
-          <a class="mm__top" href="#/catalog?kind=jacket" data-prev="img/m-motore-1-1.webp"><span class="mono">03</span>Куртки</a>
-          <div class="mm__sub"><a href="#/catalog?kind=jacket&fur=1">Куртки з хутром</a></div>
-        </div>
-        <div class="mm">
-          <a class="mm__top" href="#/catalog?kind=parka" data-prev="img/m-duetto-2-1.webp"><span class="mono">04</span>Парки</a>
-        </div>
-        <div class="mm">
-          <a class="mm__top" href="#/catalog?kind=coat" data-prev="img/m-avena-1-1.webp"><span class="mono">05</span>Пальта</a>
-        </div>
-        <div class="mm">
-          <a class="mm__top" href="#/catalog?kind=vest" data-prev="img/m-maglia-1-1.webp"><span class="mono">06</span>Жилетки</a>
-        </div>
-        <div class="mm">
-          <a class="mm__top" href="#/catalog?fur=1" data-prev="img/m-volpe-1-1.webp"><span class="mono">07</span>З хутром</a>
-        </div>
-      </nav>
+      <nav class="menu__main" id="menuMain" aria-label="Головне меню"></nav>
       <div class="menu__side">
         <p class="eyebrow">Покупцям</p>
         <ul class="menu__small">
@@ -80,7 +56,7 @@
           <li><a href="#/info">Таблиця розмірів</a></li>
         </ul>
       </div>
-      <figure class="menu__prev" aria-hidden="true"><img id="menuPrev" src="img/m-rosa-1-1.webp" alt=""></figure>
+      <figure class="menu__prev" aria-hidden="true"><img id="menuPrev" src="img/creme-1.webp" alt=""></figure>
     </div>
     <div class="menu__foot mono">
       <a href="tel:+380000000000">+38 (000) 000 00 00</a>
@@ -140,7 +116,9 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="js/data.js?v=20261101b"></script>
-  <script src="js/app.js?v=20261101b"></script>
+  <script src="js/data.js?v=20261031e"></script>
+  <script src="js/config.js?v=20261031e"></script>
+  <script src="js/catalog.js?v=20261031e"></script>
+  <script src="js/app.js?v=20261031e"></script>
 </body>
 </html>

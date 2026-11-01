@@ -1,3 +1,16 @@
+# Секрети — ніколи не комітити
+.env
+.env.*
+*.key
+*.pem
+secrets*
+*service_role*
+supabase/.temp/
+# Службове
 _screens/
 *.zip
 __pycache__/
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini

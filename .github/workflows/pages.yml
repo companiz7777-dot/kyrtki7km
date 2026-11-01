@@ -22,7 +22,7 @@ jobs:
       - name: Prepare site
         run: |
           mkdir _site
-          cp -r index.html admin.html robots.txt _headers css js img _site/
+          cp -r index.html robots.txt _headers admin css js img video _site/
       - uses: actions/configure-pages@v5
         with:
           enablement: true
